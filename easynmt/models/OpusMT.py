@@ -27,7 +27,6 @@ class OpusMT:
             else:
                 tokenizer = AutoTokenizer.from_pretrained(model_name, load_in_8bit=True)
                 model = ORTModelForSeq2SeqLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True, from_transformers=True)
-            model.eval()
 
             if len(self.models) >= self.max_loaded_models:
                 oldest_time = time.time()
