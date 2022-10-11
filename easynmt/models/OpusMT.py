@@ -47,6 +47,7 @@ class OpusMT:
             return self.pipeline[pipeline_name]
         else:
             self.pipeline[pipeline_name] = pipeline(pipeline_name, model=model, tokenizer=tokenizer)
+            return self.pipeline[pipeline_name]
 
 
     def translate_sentences(self, sentences: List[str], source_lang: str, target_lang: str, device: str, beam_size: int = 5, **kwargs):
