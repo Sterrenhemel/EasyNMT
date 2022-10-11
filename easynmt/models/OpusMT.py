@@ -22,10 +22,10 @@ class OpusMT:
         else:
             logger.info("Load model: "+model_name)
             if torch.cuda.is_available():
-                tokenizer = AutoTokenizer.from_pretrained(model_name, device=0, load_in_8bit=True, **self.tokenizer_args)
+                tokenizer = AutoTokenizer.from_pretrained(model_name, device=0, load_in_8bit=True)
                 model = ORTModelForSeq2SeqLM.from_pretrained(model_name, device=0, device_map="auto", load_in_8bit=True, from_transformers=True)
             else:
-                tokenizer = AutoTokenizer.from_pretrained(model_name, load_in_8bit=True, **self.tokenizer_args)
+                tokenizer = AutoTokenizer.from_pretrained(model_name, load_in_8bit=True)
                 model = ORTModelForSeq2SeqLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True, from_transformers=True)
             model.eval()
 
