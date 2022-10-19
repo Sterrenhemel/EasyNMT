@@ -23,7 +23,7 @@ setup(
         'nltk',
         'sentencepiece',
         'fasttext',
-        'protobuf',
+        'protobuf==3.20.1',
         'optimum[onnxruntime-gpu]'
     ],
     classifiers=[
