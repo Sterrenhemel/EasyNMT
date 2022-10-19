@@ -24,7 +24,7 @@ setup(
         'sentencepiece',
         'fasttext',
         'protobuf==3.20.1',
-        "aiohttp==3.8.3"
+        "aiohttp==3.8.3",
         'optimum[onnxruntime-gpu]'
     ],
     classifiers=[
