@@ -5,7 +5,7 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 setup(
     name="optimumEasyNMT",
-    version="2.0.2",
+    version="2.0.3",
     author="Nils Reimers",
     author_email="info@nils-reimers.de",
     description="Easy to use state-of-the-art Neural Machine Translation",
@@ -23,8 +23,8 @@ setup(
         'nltk',
         'sentencepiece',
         'fasttext',
-        'protobuf==3.20.1',
-        "aiohttp==3.8.3",
+        'protobuf<=3.20.0,>=3.1.0',
+        "aiohttp>=3.8.1,<5",
         'optimum[onnxruntime-gpu]'
     ],
     classifiers=[
