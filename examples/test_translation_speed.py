@@ -5,7 +5,7 @@ Usage:
 python translation_speed.py model_name
 """
 import os
-from easynmt import util, EasyNMT
+from optimumEasyNMT import util, EasyNMT
 import gzip
 import csv
 import sys

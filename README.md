@@ -48,7 +48,7 @@ The models are based on **PyTorch**. If you have a GPU available, see how to ins
 ## Usage
 The usage is simple:
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('opus-mt')
 
 #Translate a single sentence to German
@@ -67,7 +67,7 @@ The available models are based on the Transformer architecture, which provide st
 The `translate()` performs automatic sentence splitting to be able to translate also longer documents:
 
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('opus-mt')
 
 document = """Berlin is the capital and largest city of Germany by both area and population.[6][7] Its 3,769,495 inhabitants as of 31 December 2019[2] make it the most-populous city of the European Union, according to population within city limits.[8] The city is also one of Germany's 16 federal states. It is surrounded by the state of Brandenburg, and contiguous with Potsdam, Brandenburg's capital. The two cities are at the center of the Berlin-Brandenburg capital region, which is, with about six million inhabitants and an area of more than 30,000 km2,[9] Germany's third-largest metropolitan region after the Rhine-Ruhr and Rhine-Main regions. Berlin straddles the banks of the River Spree, which flows into the River Havel (a tributary of the River Elbe) in the western borough of Spandau. Among the city's main topographical features are the many lakes in the western and southeastern boroughs formed by the Spree, Havel, and Dahme rivers (the largest of which is Lake Müggelsee). Due to its location in the European Plain, Berlin is influenced by a temperate seasonal climate. About one-third of the city's area is composed of forests, parks, gardens, rivers, canals and lakes.[10] The city lies in the Central German dialect area, the Berlin dialect being a variant of the Lusatian-New Marchian dialects.
@@ -83,10 +83,10 @@ print(model.translate(document, target_lang='de'))
 The function breaks down the document into sentences and then translates the sentences individually using the specified model.
 
 ### Automatic Language Detection
-You can set the `source_lang` for the `translate` method to define the source language. If `source_lang` is not set, [fastText](https://fasttext.cc/blog/2017/10/02/blog-post.html) will be used to automatically determine the source language. This also allows you to provide a list with sentences / documents that have various languages:
+You can set the `source_lang` for the `translate` method to define the source language. If `source_lang` is not set, [lingua-language-detector](https://github.com/pemistahl/lingua-py) will be used to automatically determine the source language. This also allows you to provide a list with sentences / documents that have various languages:
  
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('opus-mt')
 
 #Translate several sentences to English
@@ -125,7 +125,7 @@ Opus-MT provides 1200+ different translation models, each capable to translate o
 
 **Usage:**
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('opus-mt', max_loaded_models=10)
 ```
 
@@ -140,7 +140,7 @@ We provide a wrapper for the [mBART50](https://arxiv.org/abs/2008.00401) model f
 
 **Usage:**
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('mbart50_m2m')
 ```
 
@@ -161,7 +161,7 @@ As the moment, we provide wrapper for two M2M 100 models:
 
 **Usage:**
 ```python
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 model = EasyNMT('m2m_100_418M')   #or: EasyNMT('m2m_100_1.2B') 
 ```
 

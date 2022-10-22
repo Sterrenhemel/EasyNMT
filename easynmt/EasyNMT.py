@@ -30,9 +30,12 @@ class EasyNMT:
         :param kwargs: Further optional parameters for the different models
         """
         self._model_name = model_name
-        self._fasttext_lang_id = None
-        self._lang_detectors = [self.language_detection_fasttext, self.language_detection_langid, self.language_detection_langdetect]
+        self._lang_detectors = [self.language_detection_lingua, self.language_detection_langid, self.language_detection_langdetect]
         self._lang_pairs = frozenset()
+
+        from lingua import Language, LanguageDetectorBuilder
+        languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH, Language.CHINESE]
+        self._lingua_detector = LanguageDetectorBuilder.from_languages(*languages).build()
 
         if device is None:
             device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -395,7 +398,7 @@ class EasyNMT:
         """
        Given a text, detects the language code and returns the ISO language code.
        It test different language detectors, based on what is available:
-       fastText, langid, langdetect.
+       lingua, langid, langdetect.
 
        You can change the language detector order by changing model._lang_detectors
        :param text: Text or a List of Texts for which we want to determine the language
@@ -410,26 +413,10 @@ class EasyNMT:
             except:
                 pass
 
-        raise Exception("No method for automatic language detection was found. Please install at least one of the following: fasttext (pip install fasttext), langid (pip install langid), or langdetect (pip install langdetect)")
+        raise Exception("No method for automatic language detection was found. Please install at least one of the following: lingua (pip install lingua), langid (pip install langid), or langdetect (pip install langdetect)")
 
-    def language_detection_fasttext(self, text: str) -> str:
-        """
-        Given a text, detects the language code and returns the ISO language code. It supports 176 languages. Uses
-        the fasttext model for language detection:
-        https://fasttext.cc/blog/2017/10/02/blog-post.html
-        https://fasttext.cc/docs/en/language-identification.html
-
-
-        """
-        if self._fasttext_lang_id is None:
-            import fasttext
-            fasttext.FastText.eprint = lambda x: None   #Silence useless warning: https://github.com/facebookresearch/fastText/issues/1067
-            model_path = os.path.join(self._cache_folder, 'lid.176.ftz')
-            if not os.path.exists(model_path):
-                http_get('https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz', model_path)
-            self._fasttext_lang_id = fasttext.load_model(model_path)
-
-        return self._fasttext_lang_id.predict(text.lower().replace("\r\n", " ").replace("\n", " ").strip())[0][0].split('__')[-1]
+    def language_detection_lingua(self, text: str) -> str:
+        return self._lingua_detector.detect_language_of(text.lower().replace("\r\n", " ").replace("\n", " ").strip())
 
     def language_detection_langid(self, text: str) -> str:
         import langid

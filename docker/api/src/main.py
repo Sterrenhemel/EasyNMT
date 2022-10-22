@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 from typing import Optional, Union, List
 import time
 import os

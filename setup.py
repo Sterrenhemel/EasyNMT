@@ -21,11 +21,11 @@ setup(
         'torch>=1.6.0',
         'numpy',
         'nltk',
+        "lingua-language-detector",
         'sentencepiece',
-        'fasttext',
-        'protobuf<=3.20.0,>=3.1.0',
         "aiohttp>=3.8.1,<5",
-        'optimum[onnxruntime-gpu]'
+        "protobuf==3.20.1",
+        'optimum[onnxruntime-gpu]==1.4.0'
     ],
     classifiers=[
         "Development Status :: 4 - Beta",

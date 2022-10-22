@@ -1,7 +1,7 @@
 """
 This example shows how EasyNMT can be used for sentence translation
 """
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 
 sentences = ['Voici un exemple d\'utilisation d\'EasyNMT.', #'This is an example how to use EasyNMT.',
              'You can define a list of sentences.',

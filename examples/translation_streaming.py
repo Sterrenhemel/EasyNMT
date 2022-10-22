@@ -6,7 +6,7 @@ The method chunks the data, translates it, and returns the results.
 
 This can be useful if you want to write it e.g. to a file.
 """
-from easynmt import EasyNMT
+from optimumEasyNMT import EasyNMT
 
 #First, we create a large set of sentences:
 sentences = ['This is sentence '+str(i) for i in range(10000)]
