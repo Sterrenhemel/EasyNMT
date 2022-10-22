@@ -14,6 +14,9 @@ setup(
     license="Apache License 2.0",
     url="https://github.com/UKPLab/EasyNMT",
     download_url="https://github.com/UKPLab/EasyNMT/archive/v2.0.2.zip",
+    # packages=[
+    #     "easynmt"
+    # ],
     packages=find_packages(),
     install_requires=[
         'tqdm',

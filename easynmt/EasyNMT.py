@@ -416,7 +416,7 @@ class EasyNMT:
         raise Exception("No method for automatic language detection was found. Please install at least one of the following: lingua (pip install lingua), langid (pip install langid), or langdetect (pip install langdetect)")
 
     def language_detection_lingua(self, text: str) -> str:
-        return self._lingua_detector.detect_language_of(text.lower().replace("\r\n", " ").replace("\n", " ").strip())
+        return self._lingua_detector.detect_language_of(text.lower().replace("\r\n", " ").replace("\n", " ").strip()).iso_code_639_1.name.lower()
 
     def language_detection_langid(self, text: str) -> str:
         import langid

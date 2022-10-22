@@ -16,7 +16,7 @@ This is my final sentence.""",
 """Mon document final est rédigé en français. Nous voulons donc vérifier si l'étape de détection de la langue fonctionne."""
              ]
 
-from optimumEasyNMT import EasyNMT
+from easynmt import EasyNMT
 
 
 target_lang = 'de'      # We want to translate the sentences to German (de)
