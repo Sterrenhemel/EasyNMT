@@ -5,7 +5,7 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 setup(
     name="optimumEasyNMT",
-    version="2.0.3",
+    version="2.0.4",
     author="Nils Reimers",
     author_email="info@nils-reimers.de",
     description="Easy to use state-of-the-art Neural Machine Translation",
