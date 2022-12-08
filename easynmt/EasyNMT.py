@@ -35,10 +35,10 @@ class EasyNMT:
 
         from lingua import Language, LanguageDetectorBuilder
         languages = [
-            Language.ENGLISH, Language.Russian, 
-            Language.FRENCH, Language.GERMAN, Language.SPANISH, 
-            Language.Indonesian, Language.Vietnamese,
-            Language.Japanese, Language.Korean, Language.CHINESE,
+            Language.ENGLISH, Language.RUSSIAN, 
+            Language.FRENCH, Language.GERMAN, Language.SPANISH, Language.PORTUGUESE,
+            Language.INDONESIAN, Language.VIETNAMESE,
+            Language.JAPANESE, Language.KOREAN, Language.CHINESE,
         ]
         self._lingua_detector = LanguageDetectorBuilder.from_languages(*languages).build()
 
