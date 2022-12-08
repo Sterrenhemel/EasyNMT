@@ -26,8 +26,6 @@ setup(
         'nltk',
         "lingua-language-detector",
         'sentencepiece',
-        "aiohttp>=3.8.1,<5",
-        "protobuf==3.20.1",
         'optimum[onnxruntime-gpu]==1.5.1'
     ],
     classifiers=[

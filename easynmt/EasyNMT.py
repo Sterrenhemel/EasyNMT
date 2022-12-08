@@ -34,7 +34,12 @@ class EasyNMT:
         self._lang_pairs = frozenset()
 
         from lingua import Language, LanguageDetectorBuilder
-        languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH, Language.CHINESE]
+        languages = [
+            Language.ENGLISH, Language.Russian, 
+            Language.FRENCH, Language.GERMAN, Language.SPANISH, 
+            Language.Indonesian, Language.Vietnamese,
+            Language.Japanese, Language.Korean, Language.CHINESE,
+        ]
         self._lingua_detector = LanguageDetectorBuilder.from_languages(*languages).build()
 
         if device is None:
@@ -65,7 +70,8 @@ class EasyNMT:
                     model_path_tmp = model_path.rstrip("/").rstrip("\\") + "_part"
                     os.makedirs(model_path_tmp, exist_ok=True)
 
-                    #Download easynmt.json
+                    # Download easynmt.json
+                    
                     config_url = __DOWNLOAD_SERVER__+"/{}/easynmt.json".format(model_name)
                     config_path = os.path.join(model_path_tmp, 'easynmt.json')
                     http_get(config_url, config_path)
@@ -78,7 +84,7 @@ class EasyNMT:
                             logger.info("Download {} from {}".format(filename, url))
                             http_get(url, os.path.join(model_path_tmp, filename))
 
-                    ##Rename tmp path
+                    ## Rename tmp path
                     try:
                         os.rename(model_path_tmp, model_path)
                     except Exception:

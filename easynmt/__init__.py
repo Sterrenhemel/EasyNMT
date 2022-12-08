@@ -1,5 +1,4 @@
-__version__ = "2.0.2"
-__DOWNLOAD_SERVER__ = 'http://easynmt.net/models/v2'
+__DOWNLOAD_SERVER__ = 'https://raw.githubusercontent.com/Sterrenhemel/EasyNMT/main/models'
 
 
 from .EasyNMT import EasyNMT

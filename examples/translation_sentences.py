@@ -14,7 +14,7 @@ sentences = ['Voici un exemple d\'utilisation d\'EasyNMT.', #'This is an example
 
 target_lang = 'de'      # We want to translate the sentences to German (de)
 
-model = EasyNMT('opus-mt')
+model = EasyNMT('nllb_200_distilled_600m')
 
 translations = model.translate(sentences, target_lang=target_lang, batch_size=8, beam_size=3)
 print(translations)
