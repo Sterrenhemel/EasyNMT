@@ -1,7 +1,7 @@
 """
 This example tests the translation with all available models.
 """
-from optimumEasyNMT import EasyNMT
+from easynmt import EasyNMT
 
 available_models = ['opus-mt', 'mbart50_m2m', 'm2m_100_418M', 'm2m_100_1.2B']
 
