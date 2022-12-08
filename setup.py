@@ -1,7 +1,24 @@
-from setuptools import setup, find_packages
+import platform
+import sys
+from os import path
+
+import pkg_resources
+from setuptools import find_packages
+from setuptools import setup
+
+def get_requirements_list(f):
+    with open(f) as requirements_txt:
+        requirements_list = [
+            str(requirement)
+            for requirement in pkg_resources.parse_requirements(requirements_txt)
+        ]
+        return requirements_list
+
 
 with open("README.md", mode="r", encoding="utf-8") as readme_file:
     readme = readme_file.read()
+
+install_requires = get_requirements_list('requirements.txt')
 
 setup(
     name="optimumEasyNMT",
@@ -18,16 +35,7 @@ setup(
     #     "easynmt"
     # ],
     packages=find_packages(),
-    install_requires=[
-        'tqdm',
-        'transformers>=4.4,<5',
-        'torch>=1.6.0',
-        'numpy',
-        'nltk',
-        "lingua-language-detector",
-        'sentencepiece',
-        'optimum[onnxruntime-gpu]==1.5.1'
-    ],
+    install_requires=install_requires,
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
