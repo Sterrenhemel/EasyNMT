@@ -22,7 +22,7 @@ install_requires = get_requirements_list('requirements.txt')
 
 setup(
     name="optimumEasyNMT",
-    version="2.0.6",
+    version="2.0.7",
     author="Nils Reimers",
     author_email="info@nils-reimers.de",
     description="Easy to use state-of-the-art Neural Machine Translation",
